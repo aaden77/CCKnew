@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Merriweather:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Compassion Corporation of Kingston (CCK)</title>
+    <style>
+        /* Global Reset & Base Styles */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background: #f0f4f8;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header Section */
+        header {
+            background: linear-gradient(135deg, #cc9200, #cc0000);
+            color: #0e2202;
+            text-align: center;
+            padding: 2rem 1rem;
+            position: relative;
+        }
+        header img {
+            max-width: 120px;
+            border-radius: 50%;
+            border: 2px solid #050505;
+            margin-bottom: 1rem;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Navigation Menu */
+        nav {
+            background: #cc9200;
+            text-align: center;
+            padding: 0.8rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        nav a {
+            color: #050505;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+        nav a:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .fade-in-image {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 2s ease-in-out, transform 2s ease-in-out;
+            margin-bottom: 1rem;
+        }
+        .fade-in-image img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+        }
+        body.loaded .fade-in-image {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Container */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 2rem auto;
+        }
+
+        /* Section Styling */
+        section {
+            background: #ecb52f;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        section h2 {
+            margin-bottom: 1rem;
+            color: #050505;
+            font-size: 2rem;
+            border-bottom: 2px solid #6a0909;
+            display: inline-block;
+            padding-bottom: 0.3rem;
+        }
+
+        /* Grid Layout */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .card {
+            background: #f9f9f9;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .card img, .card video {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card .card-content {
+            padding: 1.2rem;
+        }
+        .card h3 {
+            margin-bottom: 0.5rem;
+            color: #0066cc;
+        }
+
+        /* Footer */
+        footer {
+            background: #0e2202;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body class="loaded">
+<header>
+    <img src="Logo.png" alt="CCK Logo">
+    <h1 style="font-family: 'Sitka Text'">The Compassion Corporation of Kingston (CCK)</h1>
+</header>
+
+<nav style="font-family: 'Comic Sans MS'">
+    <a href="#about">About Us</a>
+    <a href="#officials">Officials</a>
+    <a href="#activities">Activities</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+    <a href="#volunteer-form">Volunteer</a>
+</nav>
+
+<!-- Manual Carousel -->
+<div class="carousel">
+    <div class="carousel-track">
+        <div class="carousel-item active">
+            <img src="image1.png" alt="CCK Community">
+        </div>
+        <div class="carousel-item">
+            <img src="image2.jpg" alt="CCK Event">
+        </div>
+        <div class="carousel-item">
+            <img src="image3.jpg" alt="CCK Outreach">
+        </div>
+    </div>
+    <!-- Navigation buttons -->
+    <button class="carousel-btn prev">&#10094;</button>
+    <button class="carousel-btn next">&#10095;</button>
+</div>
+
+<style>
+    .carousel {
+        position: relative;
+        width: 100%;
+        max-width: 1000px;
+        height: 400px;
+        margin: 0 auto 2rem auto;
+        overflow: hidden;
+        border-radius: 8px;
+        background: #000;
+    }
+
+    .carousel-track {
+        display: flex;
+        transition: transform 0.5s ease;
+    }
+
+    .carousel-item {
+        min-width: 100%;
+        height: 400px;
+        display: none; /* hide by default */
+        align-items: center;
+        justify-content: center;
+        background: #000;
+    }
+
+    .carousel-item.active {
+        display: flex; /* show active item */
+    }
+
+    .carousel-item img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+
+    .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255,255,255,0.6);
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        font-size: 24px;
+        border-radius: 50%;
+    }
+
+    .carousel-btn.prev { left: 10px; }
+    .carousel-btn.next { right: 10px; }
+</style>
+
+<script>
+    const items = document.querySelectorAll('.carousel-item');
+    const prevBtn = document.querySelector('.carousel-btn.prev');
+    const nextBtn = document.querySelector('.carousel-btn.next');
+    let currentIndex = 0;
+
+    function showSlide(index) {
+        items.forEach((item, i) => {
+            item.classList.toggle('active', i === index);
+        });
+    }
+
+    prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + items.length) % items.length;
+        showSlide(currentIndex);
+    });
+
+    nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % items.length;
+        showSlide(currentIndex);
+    });
+
+    // Initialize
+    showSlide(currentIndex);
+</script>
+
+
+
+
+
+
+
+<!-- About Section -->
+<section id="about">
+    <h2>About CCK</h2>
+    <p>
+        The Compassion Corporation of Kingston (CCK) was established many years ago with the mission to take an active interest in the civic, cultural, social, and moral welfare of the community. We strive to nurture compassion, drive positive change, and empower our citizens to create a thriving, inclusive and vibrant community.
+    </p>
+</section>
+
+<style>
+    #about {
+        text-align: center; /* center all text */
+        font-family: 'Georgia', 'Times New Roman', serif; /* elegant font */
+        padding: 2rem;
+    }
+
+    #about h2 {
+        font-family: 'Playfair Display', serif; /* stylish heading font */
+        font-size: 2.5rem;
+        color: #000000;
+        margin-bottom: 1rem;
+    }
+
+    #about p {
+        font-family: 'Open Sans', Arial, sans-serif; /* clean body font */
+        font-size: 1.2rem;
+        line-height: 1.8;
+        max-width: 800px;
+        margin: 0 auto; /* keep paragraph centered */
+        color: #333;
+    }
+</style>
+
+
+<!-- Officials Section -->
+<section id="officials">
+    <h2>Our Officials</h2>
+    <div class="grid">
+        <div class="card">
+            <img src="president.jpg" alt="President">
+            <div class="card-content">
+                <h3>Nicolas Jackson</h3>
+                <p><strong>President</strong></p>
+                <p>Nicolas leads CCK with a vision of community growth and empowerment.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="vp.jpg" alt="Vice President">
+            <div class="card-content">
+                <h3>Robert Sanchez</h3>
+                <p><strong>Vice-President</strong></p>
+                <p>Robert is dedicated to operational excellence and strategic planning.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="treasurer.jpg" alt="Treasurer">
+            <div class="card-content">
+                <h3>Reece James</h3>
+                <p><strong>Treasurer</strong></p>
+                <p>Reece manages our finances to ensure every cent is used for community betterment.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    #officials {
+        text-align: center; /* center heading and card text */
+        padding: 2rem;
+    }
+
+    #officials h2 {
+        font-family: 'Playfair Display', serif; /* elegant heading font */
+        font-size: 2.5rem;
+        color: #000000;
+        margin-bottom: 1.5rem;
+    }
+
+    #officials .card-content h3 {
+        font-family: 'Merriweather', serif; /* stylish name font */
+        font-size: 1.5rem;
+        color: #0066cc;
+        margin-bottom: 0.5rem;
+    }
+
+    #officials .card-content p {
+        font-family: 'Open Sans', Arial, sans-serif; /* clean body font */
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: #333;
+    }
+
+    #officials .card {
+        text-align: center; /* center text inside each card */
+        padding: 1rem;
+    }
+</style>
+
+
+<!-- Activities Section -->
+<section id="activities">
+    <h2>Our Activities</h2>
+    <div class="grid">
+        <div class="card">
+            <img src="image3a.jpg" alt="Community Outreach">
+            <div class="card-content">
+                <h3>Community Outreach</h3>
+                <p>Supporting underprivileged populations while enhancing solidarity.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="civic.jpg" alt="Civic Engagement">
+            <div class="card-content">
+                <h3>Civic Engagement</h3>
+                <p>Forums and workshops to encourage active participation in civic matters.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    #activities {
+        text-align: center; /* center heading and card text */
+        padding: 2rem;
+    }
+
+    #activities h2 {
+        font-family: 'Playfair Display', serif; /* elegant heading font */
+        font-size: 2.5rem;
+        color: #6a0909;
+        margin-bottom: 1.5rem;
+    }
+
+    #activities .card-content h3 {
+        font-family: 'Merriweather', serif; /* stylish subheading font */
+        font-size: 1.5rem;
+        color: #0066cc;
+        margin-bottom: 0.5rem;
+    }
+
+    #activities .card-content p {
+        font-family: 'Open Sans', Arial, sans-serif; /* clean body font */
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: #333;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    #activities .grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    #activities .card {
+        text-align: center; /* center text inside each card */
+        padding: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background: #fff;
+        max-width: 300px;
+    }
+
+    /* Image fix */
+    #activities .card img {
+        width: 100%;
+        height: auto;          /* keeps proportions */
+        object-fit: contain;   /* ensures full image is visible */
+        display: block;
+        border-radius: 6px;
+    }
+</style>
+
+
+    
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: <a href="mailto:info@cck-kingston.org">info@cck-kingston.org</a></p>
+        <p>Phone: +1 (876) 555-1234</p>
+        <p>Address: Kingston, Jamaica</p>
+    </section>
+
+    <!-- Volunteer Form Section -->
+    <section id="volunteer-form">
+        <h2>Volunteer With Us</h2>
+        <form>
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Why do you want to volunteer?</label>
+            <textarea id="message" name="message" rows="4"></textarea>
+
+            <input type="submit" value="Submit">
+        </form>
+    </section>
+</div> <!-- closes .container -->
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2026 The Compassion Corporation of Kingston (CCK). All rights reserved.</p>
+</footer>
+
+</body>
+</html>
+
+
