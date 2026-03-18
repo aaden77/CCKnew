@@ -436,33 +436,117 @@
         border-radius: 6px;
     }
 </style>
+<section id="membership">
+    <h2>Membership Information</h2>
+    <p>Join The Compassion Corporation of Kingston (CCK) and become part of a community dedicated to compassion, civic engagement, and positive change.</p>
+
+    <h3>Types of Membership</h3>
+    <ul>
+        <li><strong>Student Membership</strong> – For individuals currently enrolled in an academic institution.</li>
+        <li><strong>Associate Membership</strong> – For supporters who wish to contribute and participate without full voting rights.</li>
+        <li><strong>Full Membership</strong> – For active members with full participation and voting privileges.</li>
+        <li><strong>Life-Time Membership</strong> – For long-term supporters who commit to a permanent membership.</li>
+    </ul>
+
+    <h3>How to Apply</h3>
+    <p>To apply for membership, please complete our online application form. Once submitted, our team will review your application and contact you with next steps.</p>
+
+    <p>
+        <a> <iframe src="https://wolmerstrust-my.sharepoint.com/personal/aaden_rowe_2026_wolmers_org/_layouts/15/Doc.aspx?sourcedoc={5998a8ed-c795-4f2e-928b-2a4d3010c771}&amp;action=embedview" width="476px" height="288px" frameborder="0" title="PowerPoint Viewer">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> document, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe> </a>
+    </p>
+</section>
+
+<style>
+    /* Membership Section Styling */
+    #membership {
+        background-color: #fffbea; /* soft yellow background */
+        padding: 40px;
+        margin: 50px auto;
+        border-radius: 12px;
+        max-width: 800px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        line-height: 1.8;
+    }
+
+    #membership h2 {
+        color: #333;
+        text-align: center;
+        margin-bottom: 25px;
+        font-size: 2em;
+        border-bottom: 3px solid #f1c40f;
+        display: inline-block;
+        padding-bottom: 5px;
+    }
+
+    #membership h3 {
+        color: #444;
+        margin-top: 30px;
+        margin-bottom: 15px;
+    }
+
+    #membership ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    #membership ul li {
+        background: #fdf5c4;
+        margin: 10px 0;
+        padding: 12px 15px;
+        border-radius: 8px;
+        transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    #membership ul li:hover {
+        background-color: #ffe680;
+        transform: translateX(5px);
+    }
+
+    .apply-button {
+        display: inline-block;
+        padding: 12px 20px;
+        background-color: #f1c40f;
+        color: #333;
+        font-weight: bold;
+        text-decoration: none;
+        border-radius: 6px;
+        margin-top: 20px;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .apply-button:hover {
+        background-color: #ffdb4d;
+        transform: scale(1.05);
+    }
+</style>
 
 
-    
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <p>Email: <a href="mailto:info@cck-kingston.org">info@cck-kingston.org</a></p>
-        <p>Phone: +1 (876) 555-1234</p>
-        <p>Address: Kingston, Jamaica</p>
-    </section>
 
-    <!-- Volunteer Form Section -->
-    <section id="volunteer-form">
-        <h2>Volunteer With Us</h2>
-        <form>
-            <label for="name">Full Name</label>
-            <input type="text" id="name" name="name" required>
 
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" required>
+<!-- Contact Section -->
+<section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: <a href="mailto:info@cck-kingston.org">info@cck-kingston.org</a></p>
+    <p>Phone: +1 (876) 555-1234</p>
+    <p>Address: Kingston, Jamaica</p>
+</section>
 
-            <label for="message">Why do you want to volunteer?</label>
-            <textarea id="message" name="message" rows="4"></textarea>
+<!-- Volunteer Form Section -->
+<section id="volunteer-form">
+    <h2>Volunteer With Us</h2>
+    <form>
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required>
 
-            <input type="submit" value="Submit">
-        </form>
-    </section>
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Why do you want to volunteer?</label>
+        <textarea id="message" name="message" rows="4"></textarea>
+
+        <input type="submit" value="Submit">
+    </form>
+</section>
 </div> <!-- closes .container -->
 
 <!-- Footer -->
@@ -472,5 +556,4 @@
 
 </body>
 </html>
-
 
